@@ -10,7 +10,7 @@ router.get('/search-image', async (ctx) => {
 
   const { keyword } = query;
   if (keyword === undefined || keyword === '') {
-    ctx.throw(400, 'keyword required');
+    return ctx.throw(400, 'keyword required');
   }
 
   const page = await browser.newPage();
