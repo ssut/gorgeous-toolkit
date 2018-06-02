@@ -14,10 +14,10 @@ router.get('/search-image', async (ctx) => {
   }
 
   const page = await browser.newPage();
-  const google = new GoogleHandler(ctx.browser);
+  const google = new GoogleHandler(page);
 
   try {
-    const imageUrls = await google.searchImage(page, keyword);
+    const imageUrls = await google.searchImage(keyword);
     ctx.body = imageUrls;
   } catch (e) {
     throw e;

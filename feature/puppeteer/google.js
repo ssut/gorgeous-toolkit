@@ -13,11 +13,14 @@ class GoogleHandler extends EventEmitter {
     };
   }
 
-  constructor(runner) {
+  /**
+   *
+   * @param {puppeteer.Page} page
+   */
+  constructor(page) {
     super();
 
-    /** @type {Runner} */
-    this.runner = runner;
+    this.page = page;
   }
 
   /**
@@ -26,7 +29,9 @@ class GoogleHandler extends EventEmitter {
    * @param {puppeteer.Page} page
    * @param {String} keyword
    */
-  async searchImage(page, keyword) {
+  async searchImage(keyword) {
+    const { page } = this;
+
     await page.goto(GoogleHandler.URL.searchMain);
 
     const search = await page.$('#lst-ib');
