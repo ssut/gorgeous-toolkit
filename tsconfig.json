@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "lib": ["es2017", "dom"],
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "noEmit": true,
+        "allowJs": true,
+        "checkJs": true,
+        "target": "es2017",
+        "rootDir": "."
+    },
+    "include": [
+        ".",
+        "node_modules/@types/puppeteer/index.d.ts"
+    ]
+
+}
