@@ -11,7 +11,6 @@ const { Runner: PuppeteerRunner } = require('./feature/puppeteer');
 
   const app = new Koa();
   app.context.browser = await PuppeteerRunner.getBrowser(endpoint);
-  console.log(app.context.browser);
 
   app
     .use(route.routes())

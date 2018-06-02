@@ -5,7 +5,7 @@ const { GoogleHandler } = handlers;
 
 const router = new Router();
 
-router.get('/', async (ctx) => {
+router.get('/search-image', async (ctx) => {
   const { browser, query } = ctx;
 
   const { keyword } = query;
