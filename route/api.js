@@ -1,4 +1,5 @@
 const Router = require('koa-router');
+const sleep = require('sleep-promise');
 
 const { handlers } = require('../feature/puppeteer');
 const { GoogleHandler } = handlers;
@@ -17,7 +18,10 @@ router.get('/search-image', async (ctx) => {
   const google = new GoogleHandler(page);
 
   try {
-    const imageUrls = await google.searchImage(keyword);
+    const imageUrls = await Promise.race([
+       google.searchImage(keyword),
+       sleep(15000).then(() => Promise.reject('search timeout exceeded of 15000ms')),
+    ]);
     ctx.body = imageUrls;
   } catch (e) {
     throw e;
