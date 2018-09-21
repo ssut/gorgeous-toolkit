@@ -34,7 +34,7 @@ class GoogleHandler extends EventEmitter {
 
     await page.goto(GoogleHandler.URL.searchMain);
 
-    const search = await page.$('#lst-ib');
+    const search = await page.$('input[title="Search"]');
     await search.type(keyword);
 
     await Promise.all([
